@@ -1,0 +1,37 @@
+<!--文档碎片-->
+
+<!--（1）文档碎片可以提高DOM的操作性能（理论上），但是只在低级的浏览器里面有用，如果在高级浏览器中，用这种方法可能会导致性能不但没有提高反而降低了。-->
+
+<!--比如要插入一万个li标签，如果没有文档碎片，就必须插入一个然后页面渲染一次，插入完全部就要渲染一万次，太损耗性能。利用文档碎片，可以先把需要修改的全部放入文档碎片中，再一次渲染。-->
+
+<!--（2）文档碎片原理-->
+
+<!--（3）document.createDocumentFragment()-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="ul1">
+
+</ul>
+<script>
+    //实现
+        var oUl = document.getElementById('ul1');
+        var oFrag = document.createDocumentFragment();/*创建文档碎片*/
+
+        for(var i = 0;i < 100;i ++)
+        {
+            var oLi = document.createElement('li');
+            oLi.style.background = "#ddd";
+            oLi.style.marginBottom = "10px";
+            oFrag.appendChild(oLi);/*直接往文档碎片里面装*/
+
+        }
+        oUl.appendChild(oFrag);/*直接把文档碎片一次性装进oUl中*/
+</script>
+</body>
+</html>
