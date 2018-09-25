@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+// 利用setTimeout实现setInterval
+    var counter = 0;
+    var fun;
+    function countTimer() {
+        counter += 1;
+        if(counter < 11){   //设置计时器终止条件
+            fun = setTimeout(function () {
+                console.log(counter);
+                countTimer(true);
+            },2000);
+        }else{
+            clearTimeout(fun);
+        }
+    }
+    countTimer();
+</script>
+</body>
+</html>
