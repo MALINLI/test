@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="throttle">nnnn</button>
+<script>
+    //来源：https://blog.csdn.net/honeymao/article/details/65447051
+//     throttle 应用场景:
+//     DOM 元素的拖拽功能实现（mousemove）
+//     射击游戏的 mousedown/keydown 事件（单位时间只能发射一颗子弹）
+//     计算鼠标移动的距离（mousemove）
+//     Canvas 模拟画板功能（mousemove）
+//     搜索联想（keyup）
+//     监听滚动事件判断是否到页面底部自动加载更多：给 scroll 加了 debounce 后，只有用户停止滚动后，才会判断是否到了页面底部；如果是 throttle 的话，只要页面滚动就会间隔一段时间判断一次
+//
+//     debounce 应用场景:
+//     函数去抖有哪些应用场景？哪些时候对于连续的事件响应我们只需要执行一次回调？
+//     每次 resize/scroll 触发统计事件
+//     文本输入的验证（连续输入文字后发送 AJAX 请求进行验证，验证一次就好）
+
+
+    //函数节流,canRun=true表示执行完毕，false，表示还在执行中
+    var canRun = true;
+    document.getElementById("throttle").onclick = function(){
+        if(!canRun){
+            // 判断是否已空闲，如果在执行中，则直接return
+            return;
+        }
+        canRun = false;
+        setTimeout(function(){
+            console.log("函数节流");//执行语句
+            canRun = true;
+        }, 300);
+    };
+
+    //函数防抖
+    var timer = false;
+    document.getElementById("debounce").onscroll = function(){
+        clearTimeout(timer); // 清除未执行的代码，重置回初始化状态
+        timer = setTimeout(function(){
+            console.log("函数防抖");//执行语句
+        }, 300);
+    };
+</script>
+</body>
+</html>
