@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //一个字符串，字符串中的字符只包含ASCII码之内的值，请输出字符串的所有大小写组合（若包含非字母，直接输出即可）
+    function strunion(str){
+        var str = str;
+        var strs = str.split("");
+        var arrlow = [];
+        var arruper = [];
+        var result = [];
+        var arr = [];
+        result.push(strs.join(''));
+        // console.log(arr);
+        // // result.push(str);
+        // arr.forEach((item)=>{
+        //     result.push(str);
+        //     if (/^[a-z]+$/.test(item)) {
+        //         str = str.replace(item,item.toUpperCase());
+        //         // console.log(str);
+        //     }else if(/^[A-Z]+$/.test(item)){
+        //         str = str.replace(item,item.toLowerCase());
+        //         // console.log(str.replace(item,item.toLowerCase()));
+        //     }
+        //     result.push(str);
+        //     arr.forEach((item)=>{
+        //         result.push(str);
+        //         if (/^[a-z]+$/.test(item)) {
+        //             str = str.replace(item,item.toUpperCase());
+        //             // console.log(str);
+        //         }else if(/^[A-Z]+$/.test(item)){
+        //             str = str.replace(item,item.toLowerCase());
+        //             // console.log(str.replace(item,item.toLowerCase()));
+        //         }
+        //         result.push(str);
+        //
+        //     });
+        // });
+
+        console.log(result);
+    }
+
+    function arrpl(arr,index){
+        var index = index || 0;
+        if(/^[a-z]+$/.test(arr[0][index]))
+        arr.forEach((item,index)=>{
+            if (/^[a-z]+$/.test(item)) {
+                result.push(strs.join(''));
+                strs[index] = item.toUpperCase();
+                console.log(strs);
+                result.push(strs.join(''));
+            } else if(/^[A-Z]+$/.test(item)) {
+                strs[index] = item.toLowerCase();
+                console.log(strs);
+                result.push(strs.join(''));
+            }
+        });
+
+    };
+    strunion('Ab5cD');
+</script>
+</body>
+</html>

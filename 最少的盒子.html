@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // function blocknum(n,array){
+        // var minNum;
+        // var arr = array.sort(function(a,b){
+        //     return a - b;
+        // });
+        // console.log(arr);
+        // var len = arr.length;
+        // console.log(arr.length);
+        // var set = Array.from(new Set(arr));
+        // console.log(set);
+        // minNum = len - set.length + 1;
+        // console.log(minNum);
+        // var str = 'qweqrtyuiqqqwrtyudfgerqtywer';
+        // var result = maxN(str);
+        function maxN(n,arr) {
+            var str = arr.join('');
+            var json = {};
+            for(var i=0;i<str.length;i++){
+                if(!json[str.charAt(i)]){
+                    json[str.charAt(i)] = 1;
+                } else {
+                    json[str.charAt(i)] ++;
+                }
+            }
+            var number = '';
+            var num = 0;
+            for(var j in json){
+                if (json[j]>num) {
+                    num = json[j];
+                    number = j;
+                }
+            }
+            var obj = {
+                number:number,
+                num:num
+            }
+            console.log(num);
+    }
+    maxN(3,[1,2,5,3,3,3,5,7,7,8,9,9])
+</script>
+</body>
+</html>

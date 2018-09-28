@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //给正整数m, n, 输出所有m个正整数的组合，要求和小于等于n
+    // 给定 m=2, n=5
+    // 输出
+    // 所有可能的组合有: [1,1] [1,2] [1,3] [1,4]
+    //                 [2,1] [2,2] [2,3]
+    //                 [3,1] [3,2]
+    //                 [4,1]
+    function numCombine(n,m){
+        var sum = 0;
+        var result = [];
+        var marr = [];
+        if(m == 0) {
+            return false;
+        } else if(n == 0) {
+            for(var i = 0;i < m;i ++){
+                result.push(0);
+            }
+            return result;
+        } else {
+
+        }
+    }
+</script>
+</body>
+</html>
