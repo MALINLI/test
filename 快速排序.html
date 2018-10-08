@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //本文来源：http://www.ruanyifeng.com/blog/2011/04/quicksort_in_javascript.html
+    //基准值固定最坏情况：数组已经有序   时间复杂度：o(n^2)
+    //基准值随机：在整个数组数字全相等时，仍然是最坏情况时间复杂度是O(n^2），最好情况O(nlogn）
+    //适用于：数组长度特别大，数组乱序的情况下。
+    var quickSort = function(arr) {
+
+        if (arr.length <= 1) { return arr; }
+
+        var pivotIndex = Math.floor(arr.length / 2);    //选择基准值：最理想的方法是，选择的基准恰好能把待排序序列分成两个等长的子序列。（分治算法的效率最大）
+
+        var pivot = arr.splice(pivotIndex, 1)[0];       //取出基准值
+
+        var left = [];              //左子序列
+
+        var right = [];             //右子序列
+
+        for (var i = 0; i < arr.length; i++){   //遍历数组，小于"基准值"的元素放入左边的子集，大于基准的元素放入右边的子集
+
+            if (arr[i] < pivot) {
+
+                left.push(arr[i]);
+
+            } else {
+
+                right.push(arr[i]);
+
+            }
+
+        }
+
+        return quickSort(left).concat([pivot], quickSort(right));   //合并最终的左子序列，基准值和右子序列
+
+    };
+
+    //快速排序的优化
+    //对于很小的数组（N<=20）,快速排序不如插入排序好。
+</script>
+</body>
+</html>

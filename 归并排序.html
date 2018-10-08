@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //本文来源：https://segmentfault.com/a/1190000006261074
+
+    //自顶向下
+    function mergeSort(arr){
+        // 设置终止的条件，
+        if (arr.length < 2) {
+            return arr;
+        }
+        //设立中间值
+        var middle = parseInt(arr.length / 2);
+        //第1个和middle个之间为左子列
+        var left = arr.slice(0, middle);
+        //第middle+1到最后为右子列
+        var right = arr.slice(middle);
+        if(left=="undefined"&&right=="undefined"){
+            return false;
+        }
+        return merge(mergeSort(left), mergeSort(right));
+    }
+
+    function merge(left, right){
+        var result = [];
+
+        while (left.length && right.length) {
+            if(left[0] <= right[0]){
+                //把left的左子树推出一个，然后push进result数组里
+                result.push(left.shift());
+            }else{
+                //把right的右子树推出一个，然后push进result数组里
+                result.push(right.shift());
+            }
+        }
+        //经过上面一次循环，只能左子列或右子列一个不为空，或者都为空
+        while (left.length){
+            result.push(left.shift());
+        }
+        while (right.length){
+            result.push(right.shift());
+        }
+        return result;
+    }
+    // 测试数据
+    var nums=[6,10,1,9,4,8,2,7,3,5];
+    mergeSort(nums);
+
+
+
+
+
+
+
+    //自底向上
+    function mergeSort(arr){
+        if(arr.length<2){
+            return;
+        }
+        //设置子序列的大小
+        var step=1;
+        var left,right;
+        while(step<arr.length){
+            left=0;
+            right=step;
+            while(right+step<=arr.length){
+                mergeArrays(arr,left,left+step,right,right+step);
+                left=right+step;
+                right=left+step;
+            }
+            if(right<arr.length){
+                mergeArrays(arr,left,left+step,right,arr.length);
+            }
+            step*=2;
+        }
+    }
+    //对左右序列进行排序
+    function mergeArrays(arr,startLeft,stopLeft,startRight,stopRight){
+        // 建立一个左、右数组
+        var rightArr=new Array(stopRight-startRight+1);
+        var leftArr=new Array(stopLeft-startLeft+1);
+
+        // 给右数组赋值
+        k=startRight;
+        for(var i=0;i<(rightArr.length-1);++i){
+            rightArr[i]=arr[k];
+            ++k;
+        }
+        // 给左数组赋值
+        k=startLeft;
+        for(var i=0;i<(leftArr.length-1);++i){
+            leftArr[i]=arr[k];
+            ++k;
+        }
+        //设置哨兵值，当左子列或右子列读取到最后一位时，即Infinity，可以让另一个剩下的列中的值直接插入到数组中
+        rightArr[rightArr.length-1]=Infinity;
+        leftArr[leftArr.length-1]=Infinity;
+        var m=0;
+        var n=0;
+        // console.log(leftArr,rightArr);
+        // 比较左子列和右子列第一个值的大小，小的先填入数组，接着再进行比较
+        for(var k=startLeft;k<stopRight;++k){
+            if(leftArr[m]<=rightArr[n]){
+                arr[k]=leftArr[m];
+                m++;
+            }
+            else{
+                arr[k]=rightArr[n];
+                n++;
+            }
+        }
+    }
+    // 测试数据
+    var nums=[6,10,1,9,4,8,2,7,3,5];
+    mergeSort(nums);
+</script>
+</body>
+</html>
