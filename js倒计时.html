@@ -1,0 +1,137 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="container-fluid main">-->
+    <!--<h5>倒计时功能</h5>-->
+    <!--<hr>-->
+    <!--<a href="" class="btn btn-info timer"></a>-->
+<!--</div>-->
+
+<!--<script type="text/javascript" src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>-->
+<!--<script>-->
+    <!--//文章来源：https://www.jianshu.com/p/d456659d6241-->
+    <!--function countdown() {//倒计时-->
+        <!--var end_time=1508227190; //终止时间-->
+        <!--var curr_time = parseInt(Date.parse(new Date())/1000);-->
+        <!--var diff_time=parseInt(end_time-curr_time);// 倒计时时间差-->
+        <!--var h = Math.floor(diff_time / 3600);-->
+        <!--var m = Math.floor((diff_time / 60 % 60));-->
+        <!--var s = Math.floor((diff_time % 60));-->
+        <!--$('.timer').html(h + "时" + m + "分" + s + "秒");-->
+        <!--if (diff_time<=0) {-->
+            <!--$('.timer').html(0 + "时" + 0 + "分" + 0 + "秒");-->
+        <!--};-->
+    <!--}-->
+    <!--countdown();-->
+    <!--var start_time=setInterval('countdown()',1000);-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js时分秒毫秒倒计时</title>
+</head>
+<body>
+<!--<div>-->
+    <!--<span id="_d">00</span>-->
+    <!--<span id="_h">00</span>-->
+    <!--<span id="_m">00</span>-->
+    <!--<span id="_s">00</span>-->
+    <!--<span id="_ms">00</span>-->
+<!--</div>-->
+<!--<script type="text/javascript">-->
+    <!--function countTime() {-->
+        <!--var date = new Date();-->
+        <!--var now = date.getTime();-->
+        <!--var endDate = new Date("2017-10-01 00:00:00");//设置截止时间-->
+        <!--var end = endDate.getTime();-->
+        <!--var leftTime = end - now; //时间差-->
+        <!--var d, h, m, s, ms;-->
+        <!--if(leftTime >= 0) {-->
+            <!--d = Math.floor(leftTime / 1000 / 60 / 60 / 24);-->
+            <!--h = Math.floor(leftTime / 1000 / 60 / 60 % 24);-->
+            <!--m = Math.floor(leftTime / 1000 / 60 % 60);-->
+            <!--s = Math.floor(leftTime / 1000 % 60);-->
+            <!--ms = Math.floor(leftTime % 1000);-->
+            <!--if(ms < 100) {-->
+                <!--ms = "0" + ms;-->
+            <!--}-->
+            <!--if(s < 10) {-->
+                <!--s = "0" + s;-->
+            <!--}-->
+            <!--if(m < 10) {-->
+                <!--m = "0" + m;-->
+            <!--}-->
+            <!--if(h < 10) {-->
+                <!--h = "0" + h;-->
+            <!--}-->
+        <!--} else {-->
+            <!--console.log('已截止')-->
+        <!--}-->
+        <!--//将倒计时赋值到div中-->
+        <!--document.getElementById("_d").innerHTML = d + "天";-->
+        <!--document.getElementById("_h").innerHTML = h + "时";-->
+        <!--document.getElementById("_m").innerHTML = m + "分";-->
+        <!--document.getElementById("_s").innerHTML = s + "秒";-->
+        <!--document.getElementById("_ms").innerHTML = ms + "毫秒";-->
+        <!--//递归每秒调用countTime方法，显示动态时间效果-->
+        <!--setTimeout(countTime, 50);-->
+    <!--}-->
+
+    <!--countTime();-->
+<!--</script>-->
+
+
+<!--<div>-->
+    <!--距明年还有:-->
+    <!--<span id='daya'></span>天-->
+    <!--<span id='hoursa'></span>小时-->
+    <!--<span id='minua'></span>分-->
+    <!--<span id='secoa'></span>秒-->
+<!--</div>-->
+<!--<script type="text/javascript">-->
+    <!--/**-->
+     <!--*-->
+     <!--*   copyright WE 2012.7-->
+     <!--*   js实现动态倒计时功能-->
+     <!--*   a是从后台接收到的时间戳，需转换成毫秒单位-->
+     <!--*-->
+     <!--*/-->
+    <!--var a=12345678;         //以毫秒为单位-->
+    <!--function fomtime()-->
+    <!--{-->
+        <!--a=a-1000;-->
+        <!--var b=new Date();-->
+        <!--b.setTime(0);-->
+        <!--var c=new Date();-->
+        <!--c.setTime(a);-->
+        <!--var day1=b.getDate();        //为方便调用，把天数、小时等单独定义-->
+        <!--var hours1=b.getHours();-->
+        <!--var minu1=b.getMinutes();-->
+        <!--var seco1=b.getSeconds();-->
+        <!--var day2=c.getDate();-->
+        <!--var hours2=c.getHours();-->
+        <!--var minu2=c.getMinutes();-->
+        <!--var seco2=c.getSeconds();-->
+        <!--var day=day2-day1;-->
+        <!--var hours=hours2-hours1;-->
+        <!--var minu=minu2-minu1;-->
+        <!--var seco=seco2-seco1;-->
+        <!--document.getElementById('daya').innerHTML=day;-->
+        <!--document.getElementById('hoursa').innerHTML=hours;-->
+        <!--document.getElementById('minua').innerHTML=minu;-->
+        <!--document.getElementById('secoa').innerHTML=seco;-->
+        <!--setTimeout("fomtime()",1000);-->
+    <!--}-->
+    <!--fomtime();-->
+<!--</script>-->
+</body>
+</html>
