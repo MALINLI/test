@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    // 输入：flight_node[1-3,5,7].qunar.com
+
+    // 输出：flight_node[1].qunar.com
+    //      flight_node[2].qunar.com
+    //      flight_node[3].qunar.com
+    //      flight_node[5].qunar.com
+    //      flight_node[7].qunar.com
+    function strCompile(){
+        var inputString = 'flight_node[1-3,5,7].qunar.com';
+        var arr=[];
+        var p=/\[([^)]*)\]/g;
+        arr = p.exec(inputString);
+        var result = [];
+
+        var newArr = arr[1].split(',');
+        newArr.forEach((item)=>{
+            if(item.indexOf("-") > 0){
+                var arr1 = item.split('-');
+                for(var i = parseInt(arr1[0]);i <= parseInt(arr1[1]);i ++){
+                    result.push(inputString.replace(arr[1],i));
+                }
+            }else{
+                result.push(inputString.replace(arr[1],item));
+            }
+        });
+
+        console.log(result);
+    }
+
+    strCompile();
+</script>
+</body>
+</html>
