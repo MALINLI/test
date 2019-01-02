@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="input1">
+    <span id="display"></span>
+    <script>
+        var obj = {}
+        Object.defineProperty(obj, "a", {
+            get: function () {
+                return value;
+            },
+            set: function (newVal) {
+                value = newVal;
+                document.getElementById('display').innerHTML = value;
+            }
+        })
+        //监听输入，赋值给obj.a
+        document.addEventListener('keyup', function (e) {
+            obj.a = e.target.value;
+        })
+
+        //只监听数据变化
+        Object.keys(obj).forEach(key => {
+            // 逻辑，还木有捋清楚
+        })
+    </script>
+</body>
+
+</html>
